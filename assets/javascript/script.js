@@ -1,9 +1,12 @@
 var timeArray =["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"];
 
 var now = moment().format('H');
-console.log(now);
+
+var mySchedule =["","","","","","","","",""];
 
 $("#currentDay").text(moment().format('dddd, MMMM Do'));
+var textQ = localStorage.getItem("saveMySchedule");
+mySchedule = JSON.parse(textQ);
 
 
 // function create the row with all the elements
@@ -16,14 +19,19 @@ function rowFunction(){
         emptyDiv.addClass("col-lg-1 col-sm-1 col-xs-1");
         rowDiv.append(emptyDiv);
         var timeDiv = $("<div>");
-        timeDiv.addClass("col-lg-1 col-sm-1 col-xs-1 hour");
-        timeDiv.text(timeArray[i]);
+        var timeP = $("<p>");
+        timeDiv.addClass("col-lg-1 col-sm-1 col-xs-1 hour time-blocK");
+        timeP.addClass("center");
+        timeP.text(timeArray[i]);
         rowDiv.append(timeDiv);
+        timeDiv.append(timeP);
         var noteDiv = $("<input>");
-        noteDiv.addClass("col-lg-8 col-sm-8 col-xs-8 note past");
+        noteDiv.addClass("col-lg-8 col-sm-8 col-xs-8 textarea past");
+        noteDiv.attr("value", mySchedule[i]);
         rowDiv.append(noteDiv);
         var buttonDiv = $("<button>")
         buttonDiv.addClass("col-lg-1 col-sm-1 col-xs-1 saveBtn");
+        buttonDiv.text("Save");
         rowDiv.append(buttonDiv);
     }
 }
@@ -72,5 +80,14 @@ $(document).ready(function(){
 });
 
 $(".saveBtn").on("click", function(){
-        console.log("save");
+    mySchedule[0] = $("input:eq(0)").val().trim();
+    mySchedule[1] = $("input:eq(1)").val().trim();
+    mySchedule[2] = $("input:eq(2)").val().trim();
+    mySchedule[3] = $("input:eq(3)").val().trim();
+    mySchedule[4] = $("input:eq(4)").val().trim();
+    mySchedule[5] = $("input:eq(5)").val().trim();
+    mySchedule[6] = $("input:eq(6)").val().trim();
+    mySchedule[7] = $("input:eq(7)").val().trim();
+    mySchedule[8] = $("input:eq(8)").val().trim();
+    localStorage.setItem("saveMySchedule", JSON.stringify(mySchedule));
 });
