@@ -28,7 +28,7 @@ function rowFunction(){
         var noteDiv = $("<input>");
         noteDiv.addClass("col-lg-8 col-sm-8 col-xs-8 textarea past");
         if(mySchedule[i] != "")
-            noteDiv.attr("value", mySchedul[i]);
+            noteDiv.attr("value", mySchedule[i]);
         rowDiv.append(noteDiv);
         var buttonDiv = $("<button>")
         buttonDiv.addClass("col-lg-1 col-sm-1 col-xs-1 saveBtn");
