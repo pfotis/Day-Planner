@@ -22,9 +22,9 @@ function rowFunction(){
         var timeP = $("<p>");
         timeDiv.addClass("col-lg-1 col-sm-1 col-xs-1 hour time-blocK");
         timeP.addClass("center");
-        timeP.text(timeArray[i]);
         rowDiv.append(timeDiv);
         timeDiv.append(timeP);
+        timeP.text(timeArray[i]);
         var noteDiv = $("<input>");
         noteDiv.addClass("col-lg-8 col-sm-8 col-xs-8 textarea past");
         noteDiv.attr("value", mySchedule[i]);
