@@ -2,7 +2,7 @@ var timeArray =["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"];
 
 var now = moment().format('H');
 
-var mySchedule =["","","","","","","","",""];
+var mySchedule =[" "," "," "," "," "," "," "," "," "];
 
 $("#currentDay").text(moment().format('dddd, MMMM Do'));
 var textQ = localStorage.getItem("saveMySchedule");
