@@ -20,7 +20,7 @@ function rowFunction(){
         rowDiv.append(emptyDiv);
         var timeDiv = $("<div>");
         var timeP = $("<p>");
-        timeDiv.addClass("col-lg-1 col-sm-1 col-xs-1 hour time-blocK");
+        timeDiv.addClass("col-lg-1 col-sm-1 col-xs-1 hour time-block");
         timeP.addClass("center");
         rowDiv.append(timeDiv);
         timeDiv.append(timeP);
