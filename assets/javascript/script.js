@@ -4,9 +4,12 @@ var now = moment().format('H');
 
 var mySchedule =["","","","","","","","",""];
 
+
 $("#currentDay").text(moment().format('dddd, MMMM Do'));
 var textQ = localStorage.getItem("saveMySchedule");
-mySchedule = JSON.parse(textQ);
+if(textQ !=null){
+    mySchedule = JSON.parse(textQ);
+}
 
 
 // function create the row with all the elements
@@ -20,13 +23,14 @@ function rowFunction(){
         rowDiv.append(emptyDiv);
         var timeDiv = $("<div>");
         var timeP = $("<p>");
-        timeDiv.addClass("col-lg-1 col-sm-1 col-xs-1 hour");
+        timeDiv.addClass("col-lg-1 col-sm-1 col-xs-1 hour time-blocK");
         timeP.addClass("center");
+        timeP.text(timeArray[i]);
         rowDiv.append(timeDiv);
         timeDiv.append(timeP);
-        timeP.text(timeArray[i]);
         var noteDiv = $("<input>");
         noteDiv.addClass("col-lg-8 col-sm-8 col-xs-8 textarea past");
+        noteDiv.attr("value", mySchedule[i]);
         rowDiv.append(noteDiv);
         var buttonDiv = $("<button>")
         buttonDiv.addClass("col-lg-1 col-sm-1 col-xs-1 saveBtn");
