@@ -2,7 +2,7 @@ var timeArray =["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"];
 
 var now = moment().format('H');
 
-var mySchedule =["","","","","","","","",""];
+var mySchedule =["e","e","e","e","e","e","e","e","e"];
 
 $("#currentDay").text(moment().format('dddd, MMMM Do'));
 var textQ = localStorage.getItem("saveMySchedule");
@@ -27,7 +27,7 @@ function rowFunction(){
         timeP.text(timeArray[i]);
         var noteDiv = $("<input>");
         noteDiv.addClass("col-lg-8 col-sm-8 col-xs-8 textarea past");
-        if(mySchedule[i] != "")
+        if(mySchedule[i] != "e")
             noteDiv.attr("value", mySchedule[i]);
         rowDiv.append(noteDiv);
         var buttonDiv = $("<button>")
